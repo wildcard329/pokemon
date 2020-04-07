@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 
 import {getPokemon} from "../../actions";
-import PokemonInfo from "./pokemonInfo";
+import PokemonList from "./pokemonList";
 
 const Pokedex = props => {
 
@@ -11,9 +11,9 @@ const Pokedex = props => {
     }, [])
     return (
         <div>
-            <PokemonInfo />
+            <PokemonList />
             { props.pokemon && props.pokemon.map( critter => {
-                return <PokemonInfo critter={critter} />
+                return <PokemonList critter={critter} />
             })}
         </div>
     )
