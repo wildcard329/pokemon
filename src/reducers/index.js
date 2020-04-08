@@ -11,16 +11,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 pokemon: action.payload
             }
-        case POKEMON_STATS:
-            console.log('reducer',action.payload)
-            return {
-                ...state,
-                pokemonStatus: action.payload
-            }
         case SET_POKEMON:
+            console.log('reducer',action.payload)
+            console.log(state)
             return {
-                ...state,
-                pokemon: action.payload
+                pokemonStatus: action.payload
             }
 
         default:
