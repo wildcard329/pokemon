@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {pokemonStats} from "../../actions";
 
 const PokemonList = (props) => {
+    console.log(props)
 
     const submitSelection = e => {
         e.preventDefault();

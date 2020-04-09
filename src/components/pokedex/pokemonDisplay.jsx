@@ -2,8 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 
 import {pokemonStats} from "../../actions";
-import PokemonStats from "./pokemonStats";
-import PokemonImage from "./pokemonImage";
 
 const PokemonDisplay = props => {
     return (
