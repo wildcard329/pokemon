@@ -6,7 +6,7 @@ import {pokemonStats} from "../../actions";
 const PokemonDisplay = props => {
     return (
         <div>
-            {props.pokemonStatus && <img src = {props.pokemonStatus.sprites.front_default} />}
+            {props.pokemonStatus && <img style={{width: "50%"}} src = {props.pokemonStatus.sprites.front_default} />}
         </div>
     )
 }

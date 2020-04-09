@@ -11,11 +11,13 @@ import PokemonDisplay from "./pokemonDisplay";
 const useStyles = makeStyles(() => {
     return {
         "header-footer": {
-            height: "10vh",
-            background: "red"
+            background: "red",
+            textAlign: "center"
         },
         "list": {
-            background: "red"
+            height: "80vh",
+            background: "red",
+            textAlign: "center"
         },
         "image-display": {
             

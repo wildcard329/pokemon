@@ -15,6 +15,7 @@ const reducer = (state = initialState, action) => {
             console.log('reducer',action.payload)
             console.log(state)
             return {
+                ...state,
                 pokemonStatus: action.payload
             }
 
