@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
+import {AppBar, Toolbar, Typography} from "@material-ui/core";
 
 import {getPokemon} from "../../actions";
 import PokemonList from "./pokemonList";

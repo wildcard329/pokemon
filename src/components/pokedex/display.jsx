@@ -16,13 +16,15 @@ const useStyles = makeStyles(() => {
         },
         "list": {
             background: "red",
-            textAlign: "center"
+            textAlign: "center",
+            height: "90vh",
+            overflow: "scroll"
         },
         "image-display": {
             background: "black",
             display: "flex",
             justifyContent:"space-between",
-            height: "100vh"
+            height: "90vh"
         }
     }
 })

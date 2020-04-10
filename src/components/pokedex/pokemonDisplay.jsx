@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => {
     return {
         "image-display": {
             background:  "gray",
-            width: "500%",
+            width: "475%",
             border: "10%"
         }
     }

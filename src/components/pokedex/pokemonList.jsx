@@ -12,14 +12,27 @@ const useStyles = makeStyles(() => {
             background: "lightgray",
             width: "30%",
             margin: "0 auto",
-            padding: "2%"
+            padding: "2%",
+            borderBottom: "2px solid white",
+            borderRight: "2px solid white"
         },
         "list-light": {
-            background: "blue",
-            height: "10px",
-            width: "10px",
-            marginLeft: "32%",
-            borderRadius: "50%"
+            background: "darkred",
+            height: "15px",
+            width: "15px",
+            marginLeft: "75%",
+            borderRadius: "50%",
+        },
+        "flex-group": {
+            display: "flex",
+            justifyContent: "center"
+        },
+        "glint": {
+            background: "white",
+            height: "2px",
+            width: "2px",
+            marginLeft: "47%",
+            marginTop: "437"
         }
     }
 })
@@ -27,17 +40,29 @@ const useStyles = makeStyles(() => {
 const PokemonList = (props) => {
     const classes = useStyles();
 
+    const backToBlue = e => {
+        e.preventDefault();
+        console.log(e.target.parentNode.parentNode.childNodes[0].childNodes[0])
+        e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].style.background = "blue"
+    }
+
     const submitSelection = e => {
-        console.log(e.target.parentNode.childNodes[0])
         e.preventDefault();
         props.pokemonStats(props.critter.name)
-        e.target.parentNode.childNodes[0].style.background = "green"
+        e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].style.background = "green"
     }
 
     return (
         <div>
-            {props.critter && <><div className={classes["list-light"]}></div>
-            <p className={classes["list-display"]} onClick={submitSelection}>Name: {props.critter.name}</p></>}
+            {props.critter && 
+            <div className={classes["flex-group"]}>
+                <div>
+                    <div className={classes["list-light"]}><div className={classes["glint"]}></div></div>
+                    <div className={classes["list-light"]}><div className={classes["glint"]}></div></div>
+                </div>
+                <p className={classes["list-display"]} onMouseUp={backToBlue} onMouseDown={submitSelection}>Name: {props.critter.name.toUpperCase()}</p>
+            </div>
+            }
         </div>
     )
 }
