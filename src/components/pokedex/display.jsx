@@ -10,17 +10,19 @@ import PokemonDisplay from "./pokemonDisplay";
 
 const useStyles = makeStyles(() => {
     return {
-        "header-footer": {
+        "main": {
             background: "red",
             textAlign: "center"
         },
         "list": {
-            height: "80vh",
             background: "red",
             textAlign: "center"
         },
         "image-display": {
-            
+            background: "black",
+            display: "flex",
+            justifyContent:"space-between",
+            height: "100vh"
         }
     }
 })
@@ -28,8 +30,8 @@ const useStyles = makeStyles(() => {
 const Display = () => {
     const classes = useStyles();
     return(
-        <div>
-            <Grid className={classes["header-footer"]} container xs={12}>
+        <div className={classes["main"]}>
+            <Grid container xs={12}>
                 <Grid item xs={12}>
                     <Header />
                 </Grid>
@@ -43,7 +45,7 @@ const Display = () => {
                     <PokemonStats />
                 </Grid>
             </Grid>
-            <Grid className={classes["header-footer"]} container xs={12}>
+            <Grid container xs={12}>
                 <Grid item xs={12}>
                     <Footer />
                 </Grid>

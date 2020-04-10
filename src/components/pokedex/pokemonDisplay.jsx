@@ -1,12 +1,25 @@
 import React from "react";
+import {makeStyles} from "@material-ui/styles";
+
 import {connect} from "react-redux";
 
 import {pokemonStats} from "../../actions";
 
+const useStyles = makeStyles(() => {
+    return {
+        "image-display": {
+            background:  "gray",
+            width: "500%",
+            border: "10%"
+        }
+    }
+})
+
 const PokemonDisplay = props => {
+    const classes = useStyles();
     return (
         <div>
-            {props.pokemonStatus && <img style={{width: "50%"}} src = {props.pokemonStatus.sprites.front_default} />}
+            {props.pokemonStatus && <img  className={classes["image-display"]} src = {props.pokemonStatus.sprites.front_default} />}
         </div>
     )
 }

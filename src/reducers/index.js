@@ -1,5 +1,4 @@
 import {GET_POKEMON} from "../actions";
-import {POKEMON_STATS} from "../actions";
 import {SET_POKEMON} from "../actions";
 
 const initialState ={}
