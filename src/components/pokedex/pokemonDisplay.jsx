@@ -10,8 +10,8 @@ const useStyles = makeStyles(() => {
         "image-display": {
             background:  "gray",
             width: "475%",
-            marginTop: "15",
-            marginLeft: "15%"
+            marginTop: "20%",
+            marginLeft: "20%"
         }
     }
 })
