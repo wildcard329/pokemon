@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => {
             background:  "gray",
             width: "475%",
             marginTop: "20%",
-            marginLeft: "20%"
+            marginLeft: "40%"
         }
     }
 })
