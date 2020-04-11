@@ -1,9 +1,56 @@
-import React from "react";
+import React, {useState} from "react";
+
+import {makeStyles} from "@material-ui/styles";
+
+const useStyles = makeStyles(() => {
+    return{
+        "lcd-display": {
+            height: "30px",
+            width: "30px",
+            background: "darkred",
+            borderRadius: "50%",
+            marginLeft: "3%",
+            marginTop: "2%"
+        },
+        "flex-group": {
+            display: "flex",
+            alignItems: "space-between"
+        },
+        "glint": {
+            background: "white",
+            height: "6px",
+            width: "10px",
+            marginLeft: "40%",
+            marginTop: "10%",
+            borderRadius: "50%"
+        },
+        "form": {
+            background: "lightred",
+            borderBottom: "7%"
+        }
+    }
+})
 
 const Header = () => {
+    const [pokemon, setPokemon] = useState('')
+    const classes = useStyles()
+    const hadleChange = e => {
+        e.preventDefault();
+        setPokemon({[e.target.name]: e.target.value})
+    }
     return(
         <div>
-            <h1>Header</h1>
+            <div className={classes["flex-group"]}>
+                <div className={classes["lcd-display"]}>
+                    <div className={classes["glint"]}></div>
+                </div>
+                <div className={classes["lcd-display"]}>
+                <div className={classes["glint"]}></div>
+                </div>
+                <div className={classes["lcd-display"]}>
+                <div className={classes["glint"]}></div>
+                </div>
+            </div>
         </div>
     )
 }
