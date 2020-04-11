@@ -24,9 +24,14 @@ const useStyles = makeStyles(() => {
             marginTop: "10%",
             borderRadius: "50%"
         },
-        "form": {
-            background: "lightred",
-            borderBottom: "7%"
+        "second-glint": {
+            background: "white",
+            opacity: ".6",
+            height: "12px",
+            width: "8px",
+            borderRadius: "50%",
+            marginLeft: "70%",
+            marginTop: "10%"
         }
     }
 })
@@ -43,12 +48,15 @@ const Header = () => {
             <div className={classes["flex-group"]}>
                 <div className={classes["lcd-display"]}>
                     <div className={classes["glint"]}></div>
+                    <div className={classes["second-glint"]}></div>
                 </div>
                 <div className={classes["lcd-display"]}>
-                <div className={classes["glint"]}></div>
+                    <div className={classes["glint"]}></div>
+                    <div className={classes["second-glint"]}></div>
                 </div>
                 <div className={classes["lcd-display"]}>
-                <div className={classes["glint"]}></div>
+                    <div className={classes["glint"]}></div>
+                    <div className={classes["second-glint"]}></div>
                 </div>
             </div>
         </div>

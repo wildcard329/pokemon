@@ -48,6 +48,7 @@ const PokemonList = (props) => {
             return node.childNodes[0].childNodes[0].childNodes[0].style.background = "blue"
         })
         e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].style.background = "blue"
+        e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].style.background = "green"
         e.target.style.background = "lightgray"
         e.target.style.opacity = ".6"
     }
