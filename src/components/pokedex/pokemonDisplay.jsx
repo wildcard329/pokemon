@@ -1,20 +1,9 @@
 import React from "react";
-import {makeStyles} from "@material-ui/styles";
+import {useStyles} from "./styles.js";
 
 import {connect} from "react-redux";
 
 import {pokemonStats} from "../../actions";
-
-const useStyles = makeStyles(() => {
-    return {
-        "image-display": {
-            background:  "gray",
-            width: "450%",
-            marginTop: "20%",
-            marginLeft: "10%"
-        }
-    }
-})
 
 const PokemonDisplay = props => {
     console.log(props)

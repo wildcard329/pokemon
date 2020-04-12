@@ -1,41 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
 
-import {makeStyles} from "@material-ui/styles";
+import {useStyles} from "./styles.js";
 
 import {pokemonStats} from "../../actions";
-
-const useStyles = makeStyles(() => {
-    return{
-        "list-display": {
-            opacity: ".6",
-            background: "lightgray",
-            width: "30%",
-            padding: "2%",
-            marginLeft: "3%",
-            marginTop: "4%",
-            borderBottom: "2px solid white",
-            borderRight: "2px solid white"
-        },
-        "list-light": {
-            background: "darkred",
-            height: "15px",
-            width: "15px",
-            borderRadius: "50%"
-        },
-        "flex-group": {
-            display: "flex",
-            alignItems: "space-between"
-        },
-        "glint": {
-            background: "white",
-            height: "2px",
-            width: "2px",
-            marginLeft: "47%",
-            marginTop: "47%"
-        }
-    }
-})
 
 const PokemonList = (props) => {
     const classes = useStyles();
@@ -66,8 +34,8 @@ const PokemonList = (props) => {
             {props.critter && 
             <div className={classes["flex-group"]}>
                 <div style={{marginTop: "4%", marginLeft: "17%"}}>
-                    <div className={classes["list-light"]}><div className={classes["glint"]}></div></div>
-                    <div className={classes["list-light"]}><div className={classes["glint"]}></div></div>
+                    <div className={classes["led-off"]}><div className={classes["glint"]}></div></div>
+                    <div className={classes["led-off"]}><div className={classes["glint"]}></div></div>
                 </div>
                 <p className={classes["list-display"]} onMouseUp={backToBlue} onMouseDown={submitSelection}>Name: {props.critter.name.toUpperCase()}</p>
             </div>

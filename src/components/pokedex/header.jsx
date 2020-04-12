@@ -37,12 +37,7 @@ const useStyles = makeStyles(() => {
 })
 
 const Header = () => {
-    const [pokemon, setPokemon] = useState('')
     const classes = useStyles()
-    const hadleChange = e => {
-        e.preventDefault();
-        setPokemon({[e.target.name]: e.target.value})
-    }
     return(
         <div>
             <div className={classes["flex-group"]}>
