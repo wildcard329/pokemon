@@ -1,61 +1,50 @@
 import React, {useState} from "react";
 
-import {makeStyles} from "@material-ui/styles";
+import {useStyles} from "./styles.js";
 
-const useStyles = makeStyles(() => {
-    return{
-        "lcd-display": {
-            height: "30px",
-            width: "30px",
-            background: "darkred",
-            borderRadius: "50%",
-            marginLeft: "3%",
-            marginTop: "2%"
-        },
-        "flex-group": {
-            display: "flex",
-            alignItems: "space-between"
-        },
-        "glint": {
-            background: "white",
-            height: "6px",
-            width: "10px",
-            marginLeft: "40%",
-            marginTop: "10%",
-            borderRadius: "50%"
-        },
-        "second-glint": {
-            background: "white",
-            opacity: ".6",
-            height: "12px",
-            width: "8px",
-            borderRadius: "50%",
-            marginLeft: "70%",
-            marginTop: "10%"
-        }
-    }
-})
+import {connect} from "react-redux";
 
-const Header = () => {
+const Header = props => {
     const classes = useStyles()
     return(
         <div>
             <div className={classes["flex-group"]}>
-                <div className={classes["lcd-display"]}>
-                    <div className={classes["glint"]}></div>
-                    <div className={classes["second-glint"]}></div>
-                </div>
-                <div className={classes["lcd-display"]}>
-                    <div className={classes["glint"]}></div>
-                    <div className={classes["second-glint"]}></div>
-                </div>
-                <div className={classes["lcd-display"]}>
-                    <div className={classes["glint"]}></div>
-                    <div className={classes["second-glint"]}></div>
-                </div>
+                {props.imagePresent ? <div className={classes["ledHeader-on"]}> 
+                                        <div className={classes["glintHeader"]}></div>
+                                        <div className={classes["second-glintHeader"]}></div>
+                                    </div> 
+                                    : <div className={classes["ledHeader-off"]}>
+                                        <div className={classes["glintHeader"]}></div>
+                                        <div className={classes["second-glintHeader"]}></div>
+                                    </div> 
+                                        }
+                {props.imagePresent ? <div className={classes["ledHeader-notUsed"]}> 
+                                        <div className={classes["glintHeader"]}></div>
+                                        <div className={classes["second-glintHeader"]}></div>
+                                    </div> 
+                                    : <div className={classes["ledHeader-off"]}>
+                                        <div className={classes["glintHeader"]}></div>
+                                        <div className={classes["second-glintHeader"]}></div>
+                                    </div> 
+                                        }
+                {props.imagePresent ? <div className={classes["ledHeader-notUsed"]}> 
+                                        <div className={classes["glintHeader"]}></div>
+                                        <div className={classes["second-glintHeader"]}></div>
+                                    </div> 
+                                    : <div className={classes["ledHeader-off"]}>
+                                        <div className={classes["glintHeader"]}></div>
+                                        <div className={classes["second-glintHeader"]}></div>
+                                    </div> 
+                                        }
             </div>
         </div>
     )
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        imagePresent: state.imagePresent
+    }
+}
+
+export default connect(mapStateToProps, {}) (Header);

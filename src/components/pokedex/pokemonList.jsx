@@ -6,27 +6,12 @@ import {useStyles} from "./styles.js";
 import {pokemonStats} from "../../actions";
 
 const PokemonList = (props) => {
+    console.log("list",props)
     const classes = useStyles();
-
-    const backToBlue = e => {
-        e.preventDefault();
-        let marbles = Array.from(e.target.parentNode.parentNode.parentNode.childNodes)
-        marbles.shift();
-        marbles.map(node => {
-            return node.childNodes[0].childNodes[0].childNodes[0].style.background = "blue"
-        })
-        e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].style.background = "blue"
-        e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].style.background = "green"
-        e.target.style.background = "lightgray"
-        e.target.style.opacity = ".6"
-    }
 
     const submitSelection = e => {
         e.preventDefault();
         props.pokemonStats(props.critter.name)
-        e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].style.background = "green"
-        e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[1].style.background = "green"
-        e.target.style.background = "white"
     }
 
     return (
@@ -34,14 +19,30 @@ const PokemonList = (props) => {
             {props.critter && 
             <div className={classes["flex-group"]}>
                 <div style={{marginTop: "4%", marginLeft: "17%"}}>
-                    <div className={classes["led-off"]}><div className={classes["glint"]}></div></div>
-                    <div className={classes["led-off"]}><div className={classes["glint"]}></div></div>
+                    {(props.isBeingViewed.includes(props.critter.name)) 
+                    ? <div className={classes["led-viewed"]}><div className={classes["glint"]}></div></div> 
+                    : props.imagePresent 
+                    ? <div className={classes["led-available"]}><div className={classes["glint"]}></div></div> 
+                    : <div className={classes["led-off"]}><div className={classes["glint"]}></div></div>}
+                    {(props.hasBeenViewed.includes(props.critter.name)) 
+                    ? <div className={classes["led-viewed"]}><div className={classes["glint"]}></div></div> 
+                    : props.imagePresent 
+                    ? <div className={classes["led-notViewed"]}><div className={classes["glint"]}></div></div> 
+                    : <div className={classes["led-off"]}><div className={classes["glint"]}></div></div>}
                 </div>
-                <p className={classes["list-display"]} onMouseUp={backToBlue} onMouseDown={submitSelection}>Name: {props.critter.name.toUpperCase()}</p>
+                <p className={classes["list-display"]} onClick={submitSelection}>Name: {props.critter.name.toUpperCase()}</p>
             </div>
             }
         </div>
     )
 }
 
-export default connect(null, {pokemonStats}) (PokemonList);
+const mapStateToProps = state => {
+    return {
+        imagePresent: state.imagePresent,
+        hasBeenViewed: state.hasBeenViewed,
+        isBeingViewed: state.isBeingViewed
+    };
+};
+
+export default connect(mapStateToProps, {pokemonStats}) (PokemonList);
