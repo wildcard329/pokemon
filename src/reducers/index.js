@@ -1,7 +1,11 @@
 import {GET_POKEMON} from "../actions";
 import {SET_POKEMON} from "../actions";
 
-const initialState ={}
+const initialState ={
+    imagePresent: false,
+    hasBeenViewed: [],
+    isBeingViewed: []
+}
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
@@ -12,10 +16,12 @@ const reducer = (state = initialState, action) => {
             }
         case SET_POKEMON:
             console.log('reducer',action.payload)
-            console.log(state)
             return {
                 ...state,
-                pokemonStatus: action.payload
+                pokemonStatus: action.payload,
+                imagePresent: true,
+                hasBeenViewed: [...state.hasBeenViewed, action.payload.name],
+                isBeingViewed: [action.payload.name]
             }
 
         default:
